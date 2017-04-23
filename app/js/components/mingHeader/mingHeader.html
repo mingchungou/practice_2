@@ -1,0 +1,21 @@
+<header class="main-header fixed-top" ng-class="{'header-animated': animated}" role="banner">
+    <div class="container">
+        <a class="logo" href="#/">
+            <img src="images/logo.svg" alt="logo">
+        </a>
+		<ming-icon-list icon-type="button" icons="$ctrl.icons"></ming-icon-list>
+        <form id="search-form" class="search-form collapse" action="#" method="post">
+            <div class="search-content">
+                <input type="text" placeholder="buscar..." />
+                <input type="submit" value="Search" />
+            </div>
+        </form>
+        <nav id="menu-nav" class="menu-nav collapse">
+            <ul>
+                <li ng-class="{active: option.active}" ng-repeat="option in $ctrl.menu">
+                    <a href="{{option.url}}">{{option.name}}</a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+</header>

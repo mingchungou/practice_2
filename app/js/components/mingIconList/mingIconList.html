@@ -1,0 +1,8 @@
+<div class="icons" ng-switch="$ctrl.iconType">
+    <button ng-switch-when="button" class="icon px-2 {{icon.extraClass}}" type="button" ng-repeat="icon in $ctrl.icons" ng-icon-extra="{{icon}}" ng-render="{{icon.forRender}}">
+        <i class="fa {{icon.style}}" aria-hidden="true"></i>
+    </button>
+    <a ng-switch-default class="icon {{icon.extraClass}}" ng-repeat="icon in $ctrl.icons" ng-icon-extra="{{icon}}" ng-render="{{icon.forRender}}">
+        <i class="fa {{icon.style}}" aria-hidden="true"></i>
+    </a>
+</div>

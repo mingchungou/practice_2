@@ -1,0 +1,6 @@
+<div class="owl-carousel">
+    <a href="#" ng-repeat="item in $ctrl.items" ng-render="{{$ctrl.forRender}}">
+        <h4>{{item.title}}</h4>
+        <img alt="{{item.image.alt}}" ng-url="{{item.image.url}}" />
+    </a>
+</div>

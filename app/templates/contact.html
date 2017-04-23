@@ -1,0 +1,49 @@
+<div class="internal-page">
+    <section class="welcome-content">
+        <ming-header id="ming-header" menu-selected="Contacto"></ming-header>
+        <ming-welcome-text class="text-center" options="$ctrl.welcomeTextOptions"></ming-welcome-text>
+    </section>
+    <ming-root current-page="Contacto"></ming-root>
+    <main class="form-content py-3">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8">
+                    <h2 class="mb-3">Formulario de contacto</h2>
+                    <form action="#">
+                        <div class="form-group row">
+                            <label for="name" class="col-sm-4 form-control-label">Nombre</label>
+                            <div class="col-sm-8">
+                                <input type="text" class="form-control" id="name" name="name" placeholder="Ingrese su nombre" data-toggle="tooltip" data-placement="top" title="Ingrese su nombre completo" />
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="email" class="col-sm-4 form-control-label">Email</label>
+                            <div class="col-sm-8">
+                                <input type="email" class="form-control" id="email" name="email" placeholder="Ingrese su email" data-toggle="tooltip" data-placement="top" title="Ingrese su email" />
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="message" class="col-sm-4 form-control-label">Mensaje</label>
+                            <div class="col-sm-8">
+                                <textarea class="form-control" id="message" name="message" placeholder="Ingrese su mensaje" rows="5" data-toggle="tooltip" data-placement="top" title="Ingrese un mensaje"></textarea>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <div class="col-sm-8 col-md-8 offset-sm-4 offset-md-4">
+                                <button type="submit" class="btn btn-primary">Enviar</button>
+                                <button type="reset" class="btn btn-secondary">Limpiar</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="col-md-4">
+                    <h3>Detalles de contacto</h3>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque laborum commodi suscipit vitae eius perferendis consequuntur? Modi nihil aliquam, quas deserunt vitae atque suscipit ratione rerum eveniet. Qui, adipisci ad.</p>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque laborum commodi suscipit vitae eius perferendis consequuntur? Modi nihil aliquam, quas deserunt vitae atque suscipit ratione rerum eveniet. Qui, adipisci ad.</p>
+                </div>
+            </div>
+        </div>
+    </main>
+    <ming-footer></ming-footer>
+</div>
+<init-components></init-components>

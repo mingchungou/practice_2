@@ -1,0 +1,56 @@
+$textColor: #111111 !default;
+$primaryColor: #12afaf !default;
+$primaryColorDark: #064e4e !default;
+$secondaryColor: #009500 !default;
+$secondaryColorDark: #057705 !default;
+$whiteColor: #ffffff !default;
+$grayColor: #8c8888 !default;
+
+@mixin position-fixed($top, $right, $bottom, $left) {
+    position: fixed;
+    top: $top;
+    right: $right;
+    bottom: $bottom;
+    left: $left;
+}
+
+@mixin position-absolute($top, $right, $bottom, $left) {
+    position: absolute;
+    top: $top;
+    right: $right;
+    bottom: $bottom;
+    left: $left;
+}
+
+@keyframes arrow-down-animated {
+    from {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(6px);
+    }
+    to {
+        transform: translateY(0);
+    }
+}
+
+@mixin quantity-query( $number, $comparison: "equal" ) {
+    $nth: "";
+
+    @if index( ("greater" "more" ">"), $comparison ) {
+        $nth: "n + #{$number}";
+    } @else if index( ("less" "fewer" "<"), $comparison ) {
+        $nth: "-n + #{$number}";
+    } @else if index( ("equal" 'same' '='), $comparison ) {
+        $nth: $number;
+    } @else {
+        @warn "Sorry, that's an invalid $comparison value."
+    }
+
+    &:nth-last-child(#{$nth}):first-child {
+        &,
+        & ~ * {
+            @content;
+        }
+    }
+}

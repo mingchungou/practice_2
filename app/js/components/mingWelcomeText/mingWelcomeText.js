@@ -1,3 +1,5 @@
+"use strict";
+
 app.component("mingWelcomeText", {
     templateUrl: "js/components/mingWelcomeText/mingWelcomeText.html",
     controller: "mingWelcomeTextController",

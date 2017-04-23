@@ -35,6 +35,16 @@ module.exports = function(grunt) {
                     "app/css/myStyle.css"
                 ],
                 dest: "www/css/style.css"
+            },
+            includeGoogleFont: {
+                options: {
+                    process: function(src, filepath) {
+                        return '@import url("https://fonts.googleapis.com/css?family=Open+Sans:400,700,700italic");' + src;
+                    }
+                },
+                files: {
+                    "www/css/style.min.css": "www/css/style.min.css",
+                }
             }
         },
         watch: {
@@ -129,6 +139,7 @@ module.exports = function(grunt) {
         "clean:www",
         "imageEmbed:font",
         "cssmin",
+        "concat:includeGoogleFont",
         "ngtemplates",
         "uglify",
         "copy",

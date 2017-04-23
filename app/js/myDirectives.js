@@ -1,3 +1,5 @@
+"use strict";
+
 /***************** set collapse effect or link to icon ******************/
 app.directive("ngIconExtra", function() {
     return {

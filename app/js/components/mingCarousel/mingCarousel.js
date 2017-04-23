@@ -1,3 +1,5 @@
+"use strict";
+
 app.component("mingCarousel", {
     templateUrl: "js/components/mingCarousel/mingCarousel.html",
     controller: "mingCarouselController"

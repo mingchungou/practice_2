@@ -1,3 +1,5 @@
+"use strict";
+
 app.component("mingHeader", {
     templateUrl: "js/components/mingHeader/mingHeader.html",
     controller: "mingHeaderController",

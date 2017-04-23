@@ -1,3 +1,5 @@
+"use strict";
+
 app.controller("mobileSolutionsController", function() {});
 
 app.controller("initController", ["$document",
@@ -160,6 +162,7 @@ app.controller("serviceController", [
 			}
 		}];
 
+		/***************** set data to modal according to service ******************/
 		this.initModal = function(service) {
 			var modal = $("#myModal"),
 				modalBody = modal.find(".modal-body");

@@ -1,3 +1,5 @@
+"use strict";
+
 app.component("mingFooter", {
     templateUrl: "js/components/mingFooter/mingFooter.html",
     controller: "mingFooterController"

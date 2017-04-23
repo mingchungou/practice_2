@@ -1,3 +1,5 @@
+"use strict";
+
 app.component("mingIconList", {
     templateUrl: "js/components/mingIconList/mingIconList.html",
     controller: "mingIconListController",

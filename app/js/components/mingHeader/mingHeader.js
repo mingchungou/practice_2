@@ -9,28 +9,28 @@ app.component("mingHeader", {
 });
 
 app.controller("mingHeaderController", ["$scope", "$window",
-    function($scope, $window) {
+    function( $scope, $window ) {
     	var self = this;
         $scope.animated = false;
 
-    	var animateHeader = function(status) {
+    	var animateHeader = function( status ) {
     		$scope.$apply(function() {
         		$scope.animated = status;
         	});
     	};
 
         this.$onInit = function() {
-            var xWindow = $($window),
+            var xWindow = $( $window ),
                 scroll;
 
             /***************** animate header event ******************/
             xWindow.scroll(function () {
                 scroll = xWindow.scrollTop();
 
-                if (scroll >= 80) {
-                    animateHeader(true);
+                if ( scroll >= 80 ) {
+                    animateHeader( true );
                 } else {
-                    animateHeader(false);
+                    animateHeader( false );
                 }
             });
 
@@ -49,8 +49,8 @@ app.controller("mingHeaderController", ["$scope", "$window",
         		url: "#contact"
         	}];
 
-            for (var i = 0; i < self.menu.length; i++) {
-                if (self.menu[i].name === self.menuSelected) {
+            for ( var i = 0; i < self.menu.length; i++ ) {
+                if ( self.menu[i].name === self.menuSelected ) {
                     self.menu[i].active = true;
                 }
             }

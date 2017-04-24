@@ -4,21 +4,21 @@
 app.directive("ngIconExtra", function() {
     return {
         restrict: "A",
-        link: function(scope, element, attr) {
-            if (attr.ngIconExtra) {
-                var icon = JSON.parse(attr.ngIconExtra);
+        link: function( scope, element, attr ) {
+            if ( attr.ngIconExtra ) {
+                var icon = JSON.parse( attr.ngIconExtra );
 
-                if (icon.hasTarget) {
+                if ( icon.hasTarget ) {
                     element.attr({
                         "data-toggle": "collapse",
                         "data-target": icon.hasTarget.target,
                         "aria-expanded": "false"
                     });
-                } else if (icon.hasUrl) {
-                    element.attr("href", icon.hasUrl.url);
+                } else if ( icon.hasUrl ) {
+                    element.attr( "href", icon.hasUrl.url );
 
-                    if (icon.hasUrl.target) {
-                        element.attr("target", icon.hasUrl.target);
+                    if ( icon.hasUrl.target ) {
+                        element.attr( "target", icon.hasUrl.target );
                     }
                 }
             }
@@ -30,19 +30,19 @@ app.directive("ngIconExtra", function() {
 app.directive("ngWow", function() {
     return {
         restrict: "A",
-        link: function(scope, element, attr) {
-            if (attr.ngWow) {
-                var values = JSON.parse(attr.ngWow);
+        link: function( scope, element, attr ) {
+            if ( attr.ngWow ) {
+                var values = JSON.parse( attr.ngWow );
 
-                if (values.animation) {
-                    if (values.animation.type) {
-                        element.addClass("wow " + values.animation.type);
+                if ( values.animation ) {
+                    if ( values.animation.type ) {
+                        element.addClass( "wow " + values.animation.type );
                     }
-                    if (values.animation.duration) {
-                        element.attr("data-wow-duration", values.animation.duration);
+                    if ( values.animation.duration ) {
+                        element.attr( "data-wow-duration", values.animation.duration );
                     }
-                    if (values.animation.delay) {
-                        element.attr("data-wow-delay", values.animation.delay);
+                    if ( values.animation.delay ) {
+                        element.attr( "data-wow-delay", values.animation.delay );
                     }
                 }
             }
@@ -54,30 +54,30 @@ app.directive("ngWow", function() {
 app.directive("ngUrl", function() {
     return {
         restrict: "A",
-        link: function(scope, element, attr) {
-            if (attr.ngUrl) {
-                element.attr("src", attr.ngUrl);
+        link: function( scope, element, attr ) {
+            if ( attr.ngUrl ) {
+                element.attr( "src", attr.ngUrl );
             }
         }
     };
 });
 
 /***************** execute after ng-repeat has done ******************/
-app.directive("ngRender", function($window, $document) {
+app.directive("ngRender", function( $window ) {
     return {
         restrict: "A",
-        link: function(scope, element, attr) {
-            if (scope.$last && attr.ngRender) {
-                var values = JSON.parse(attr.ngRender);
+        link: function( scope, element, attr ) {
+            if ( scope.$last && attr.ngRender ) {
+                var values = JSON.parse( attr.ngRender );
 
-                if (values.type === "carousel") {
+                if ( values.type === "carousel" ) {
                     /***************** init owl carousel ******************/
-                    $("." + values.elementClass).owlCarousel({
+                    $( "." + values.elementClass ).owlCarousel({
                         loop: true,
                         margin: 0,
                         nav: true,
                         autoWidth: false,
-                        navText: ['<i class="fa fa-arrow-circle-left" title="Anterior"></i>', '<i class="fa  fa-arrow-circle-right" title="Siguiente"></i>'],
+                        navText: [ '<i class="fa fa-arrow-circle-left" title="Anterior"></i>', '<i class="fa fa-arrow-circle-right" title="Siguiente"></i>' ],
                         responsive: {
                             0: {
                                 items: 1
@@ -96,44 +96,47 @@ app.directive("ngRender", function($window, $document) {
                             }
                         }
                     });
-                } else if (values.type === "go-top") {
+                } else if ( values.type === "go-top" ) {
                     /***************** add animation, event to go top icon ******************/
-                    var xWindow = $($window),
+                    var xWindow = $( $window ),
                         scroll,
-                        goUpIcon = $(".go-top .icon"),
-                        header = angular.element($("#ming-header"));
+                        goUpIcon = $( ".go-top .icon" ),
+                        header = angular.element( $( "#ming-header" ) );
 
                     xWindow.scroll(function () {
                         scroll = xWindow.scrollTop();
 
-                        if (scroll >= 50) {
-                            goUpIcon.addClass("show");
+                        if ( scroll >= 50 ) {
+                            goUpIcon.addClass( "show" );
                         } else {
-                            goUpIcon.removeClass("show");
+                            goUpIcon.removeClass( "show" );
                         }
                     });
 
                     goUpIcon.click(function() {
-                        $(xWindow[0].document).scrollToElement(header, 0, 1000);
+                        $( xWindow[0].document ).scrollToElement( header, 0, 1000 );
                     });
-                } else if (values.type === "accordion") {
+                } else if ( values.type === "accordion" ) {
                     /***************** open accordion first item ******************/
-                    $("#accordion .card:first-child div").addClass("show");
+                    $( "#accordion .card:first-child div" ).addClass( "show" );
                 }
             }
         }
     };
 });
 
-app.directive("initComponents", function($window) {
+app.directive("initComponents", function( $window ) {
     return {
         restrict: "E",
-        link: function(scope, element, attr) {
+        link: function( scope, element, attr ) {
             /***************** start from the top when loading a page ******************/
-            $window.scrollTo(0, 0);
+            $window.scrollTo( 0, 0 );
 
             /***************** init wow animation ******************/
             new WOW().init();
+
+            /***************** init tooltip ******************/
+            $( "[ data-toggle='tooltip' ]" ).tooltip();
         }
     };
 });

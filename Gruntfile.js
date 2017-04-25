@@ -1,5 +1,5 @@
 module.exports = function(grunt) {
-    require('matchdep').filterDev('grunt-*').forEach(grunt.loadNpmTasks);
+    require("matchdep").filterDev("grunt-*").forEach(grunt.loadNpmTasks);
 
     grunt.initConfig({
         concat: {
@@ -87,8 +87,8 @@ module.exports = function(grunt) {
         compass: {
             dist: {
                 options: {
-                    sassDir: 'app/scss',
-                    cssDir: 'temp'
+                    sassDir: "app/scss",
+                    cssDir: "temp"
                 }
             }
         },
@@ -129,7 +129,7 @@ module.exports = function(grunt) {
                 ],
                 dest: "temp/templates.js",
                 options: {
-                    module: 'mobileSolutions'
+                    module: "mobileSolutions"
                 }
             }
         }

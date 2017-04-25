@@ -6,7 +6,17 @@ $secondaryColorDark: #057705 !default;
 $whiteColor: #ffffff !default;
 $grayColor: #8c8888 !default;
 
-@mixin position-fixed($top, $right, $bottom, $left) {
+%background-primary {
+    background-color: $primaryColor;
+    color: $whiteColor;
+}
+
+%background-secondary {
+    background-color: $secondaryColor;
+    color: $whiteColor;
+}
+
+@mixin position-fixed($top: null, $right: null, $bottom: null, $left: null) {
     position: fixed;
     top: $top;
     right: $right;
@@ -14,7 +24,7 @@ $grayColor: #8c8888 !default;
     left: $left;
 }
 
-@mixin position-absolute($top, $right, $bottom, $left) {
+@mixin position-absolute($top: null, $right: null, $bottom: null, $left: null) {
     position: absolute;
     top: $top;
     right: $right;
@@ -34,20 +44,24 @@ $grayColor: #8c8888 !default;
     }
 }
 
-@mixin quantity-query( $number, $comparison: "equal" ) {
+@mixin quantity-query($number, $comparison: "=") {
     $nth: "";
 
-    @if index( ("greater" "more" ">"), $comparison ) {
-        $nth: "n + #{$number}";
-    } @else if index( ("less" "fewer" "<"), $comparison ) {
+    @if index(">", $comparison) {
+        $nth: "-n + #{$number - 1}";
+    } @else if index(">=", $comparison) {
         $nth: "-n + #{$number}";
-    } @else if index( ("equal" 'same' '='), $comparison ) {
+    } @else if index("<", $comparison) {
+        $nth: "n + #{$number + 1}";
+    } @else if index("<=", $comparison) {
+        $nth: "n + #{$number}";
+    } @else if index("=", $comparison) {
         $nth: $number;
     } @else {
-        @warn "Sorry, that's an invalid $comparison value."
+        @warn "Sorry, that's an invalid $comparison value.";
     }
 
-    &:nth-last-child(#{$nth}):first-child {
+    &:nth-last-child(#{$nth}):first-of-type {
         &,
         & ~ * {
             @content;

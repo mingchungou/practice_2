@@ -12,8 +12,7 @@ body {
 
 .btn-primary {
     border-color: transparent;
-    background-color: $primaryColor;
-    color: $whiteColor;
+    @extend %background-primary;
     transition: all 0.5s ease;
     cursor: pointer;
 
@@ -22,8 +21,7 @@ body {
     &:active {
         border-color: transparent;
         box-shadow: none;
-        background-color: $secondaryColor;
-        color: $whiteColor;
+        @extend %background-secondary;
     }
 }
 
@@ -104,8 +102,7 @@ body {
                         padding: 0 1rem;
                         border: 0;
                         border-radius: 0 5px 5px 0;
-                        background-color: $primaryColor;
-                        color: $whiteColor;
+                        @extend %background-primary;
                         cursor: pointer;
                     }
 
@@ -180,8 +177,7 @@ body {
 .main-page {
     /************** agency content styles *****************/
     .agency-content {
-        background-color: $primaryColor;
-        color: $whiteColor;
+        @extend %background-primary;
 
         img {
             display: block;
@@ -206,8 +202,7 @@ body {
                     width: 4.7rem;
                     height: 4.7rem;
                     border-radius: 50%;
-                    background-color: $secondaryColor;
-                    color: $whiteColor;
+                    @extend %background-secondary;
                     font-size: 2.3rem;
                     line-height: 4.7rem;
                 }
@@ -351,7 +346,7 @@ body {
 
 /************** go top icon styles *****************/
 .go-top .icons .icon {
-    @include position-fixed(initial, 1rem, -4rem, initial);
+    @include position-fixed((right: 1rem, bottom: -4rem)...);
     text-shadow: -5px 5px 10px rgba(0, 0, 0, 0.5);
     z-index: 99999;
     color: $whiteColor;
@@ -381,8 +376,7 @@ body {
 
     /************** root styles *****************/
     .root {
-        background-color: $primaryColor;
-        color: $whiteColor;
+        @extend %background-primary;
 
         .container a {
             color: $whiteColor;
@@ -408,13 +402,12 @@ body {
             padding: 1rem;
             border-bottom: 0;
             border-radius: 5px;
-            background-color: $primaryColor;
-            color: $whiteColor;
+            @extend %background-primary;
             font-size: 1.2rem;
             transition: all 0.5s ease;
 
             &:hover {
-                background-color: $secondaryColor;
+                @extend %background-secondary;
             }
         }
 
@@ -422,7 +415,7 @@ body {
             padding: 0.5rem 0 0;
 
             p {
-                @include quantity-query(1, greater) {
+                @include quantity-query(1, "<") {
                     &:not(:last-child) {
                         margin-bottom: 0.7rem;
                     }
@@ -433,8 +426,7 @@ body {
 
     /************** service - service list styles *****************/
     .service-list-content {
-        background-color: $secondaryColor;
-        color: $whiteColor;
+        @extend %background-secondary;
 
         .item-service {
             margin-bottom: 1rem;
@@ -488,7 +480,7 @@ body {
 
         .search-form {
             order: 3;
-            @include position-absolute(2.8rem, 1rem, initial, initial);
+            @include position-absolute((top: 2.8rem, right: 1rem)...);
             width: 28rem;
         }
 

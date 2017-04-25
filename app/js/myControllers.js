@@ -3,8 +3,8 @@
 app.controller("mobileSolutionsController", function() {});
 
 app.controller("initController", ["$document",
-	function( $document ) {
-		var agency = angular.element( $( "#agency-content" ) );
+	function($document) {
+		var agency = angular.element($("#agency-content"));
 
 		/***************** welcome text options ******************/
 		this.welcomeTextOptions = {
@@ -15,7 +15,7 @@ app.controller("initController", ["$document",
 
 		/***************** scroll to agency function ******************/
 		this.scrollToAgency = function() {
-			$document.scrollToElement( agency, 80, 1000 );
+			$document.scrollToElement(agency, 80, 1000);
 		};
 
 		/***************** best election options ******************/
@@ -23,32 +23,32 @@ app.controller("initController", ["$document",
 	        style: "fa-briefcase",
 	        title: "Aplicaciones para la nube",
 	        content: "Para empresa que requiera ampliar sus plataformas de gestión.",
-			animation: { delay: "0.3s" }
+			animation: {delay: "0.3s"}
 	    }, {
 	        style: "fa-bullhorn",
 	        title: "Fábrica de software",
 	        content: "Servicios de mejora correctiva y evolutiva para sus aplicaciones.",
-			animation: { delay: "0.5s" }
+			animation: {delay: "0.5s"}
 	    }, {
 	        style: "fa-comment-o",
 	        title: "Gestión en la Nube",
 	        content: "Para empresa que requiera ampliar sus plataformas de gestión.",
-			animation: { delay: "0.7s" }
+			animation: {delay: "0.7s"}
 	    }, {
 	        style: "fa-calendar",
 	        title: "Videojuegos",
 	        content: "Para empresa que requiera ampliar sus plataformas de gestión.",
-			animation: { delay: "0.4s" }
+			animation: {delay: "0.4s"}
 	    }, {
 	        style: "fa-check-square-o",
 	        title: "Diseño personalizado",
 	        content: "Customiza hasta el último píxel de tu App. Infinitas Posibilidades.",
-			animation: { delay: "0.6s" }
+			animation: {delay: "0.6s"}
 	    }, {
 	        style: "fa-cogs",
 	        title: "Funciones a medida",
 	        content: "Tienes más de 50 funciones predesarrolladas para escoger.",
-			animation: { delay: "0.8s" }
+			animation: {delay: "0.8s"}
 	    }];
 
 		/***************** service options ******************/
@@ -59,7 +59,7 @@ app.controller("initController", ["$document",
 	        },
 	        title: "Desarrollo de Aplicaciones Mobiles",
 	        content: "Desarrollamos aplicaciones móviles y plataformas web. Nuestra principal cualidad está en el desarrollo de software a medida de tus necesidades.",
-			animation: { delay: "0.3s" }
+			animation: {delay: "0.3s"}
 	    }, {
 	        image: {
 	            url: "images/service-2.svg",
@@ -67,7 +67,7 @@ app.controller("initController", ["$document",
 	        },
 	        title: "Consultoría Tecnológica",
 	        content: "Ofrecemos consultoría tecnológica especializada en movilidad, necesaria previo al desarrollo de cualquier proyecto.",
-			animation: { delay: "0.6s" }
+			animation: {delay: "0.6s"}
 	    }, {
 	        image: {
 	            url: "images/service-3.svg",
@@ -75,7 +75,7 @@ app.controller("initController", ["$document",
 	        },
 	        title: "Marketing y publicidad Movil",
 	        content: "Desarrollamos campañas publicitarias para tus APP. Hacemos conocer tu marca en el momento exacto para conseguir un mayor inpacto.",
-			animation: { delay: "0.9s" }
+			animation: {delay: "0.9s"}
 	    }];
 	}]);
 
@@ -163,13 +163,13 @@ app.controller("serviceController", [
 		}];
 
 		/***************** set data to modal according to service ******************/
-		this.initModal = function( service ) {
-			var modal = $( "#myModal" ),
-				modalBody = modal.find( ".modal-body" );
+		this.initModal = function(service) {
+			var modal = $("#myModal"),
+				modalBody = modal.find(".modal-body");
 
-			modal.find( ".modal-header .modal-title" ).text( service.title );
-			modalBody.find( ".col-md-8" ).text( service.modal.content );
-			modalBody.find( ".img-fluid" ).attr({
+			modal.find(".modal-header .modal-title").text(service.title);
+			modalBody.find(".col-md-8").text(service.modal.content);
+			modalBody.find(".img-fluid").attr({
 				src: service.modal.image.url,
 				alt: service.modal.image.alt
 			});

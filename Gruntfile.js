@@ -1,5 +1,5 @@
-module.exports = function( grunt ) {
-    require( "matchdep" ).filterDev( "grunt-*" ).forEach( grunt.loadNpmTasks );
+module.exports = function(grunt) {
+    require('matchdep').filterDev('grunt-*').forEach(grunt.loadNpmTasks);
 
     grunt.initConfig({
         concat: {
@@ -38,7 +38,7 @@ module.exports = function( grunt ) {
             },
             includeGoogleFont: {
                 options: {
-                    process: function( src, filepath ) {
+                    process: function(src, filepath) {
                         return '@import url("https://fonts.googleapis.com/css?family=Open+Sans:400,700,700italic");' + src;
                     }
                 },
@@ -49,12 +49,12 @@ module.exports = function( grunt ) {
         },
         watch: {
             js: {
-                files: [ "app/js/**/*.js" ],
-                tasks: [ "concat:js" ]
+                files: ["app/js/**/*.js"],
+                tasks: ["concat:js"]
             },
             css: {
-                files: [ "app/css/**/*.css" ],
-                tasks: [ "concat:css" ]
+                files: ["app/css/**/*.css"],
+                tasks: ["concat:css"]
             }
         },
         cssmin: {
@@ -87,8 +87,8 @@ module.exports = function( grunt ) {
         compass: {
             dist: {
                 options: {
-                    sassDir: "app/scss",
-                    cssDir: "temp"
+                    sassDir: 'app/scss',
+                    cssDir: 'temp'
                 }
             }
         },
@@ -96,13 +96,13 @@ module.exports = function( grunt ) {
             temp: {
                 files: [{
                     dot: true,
-                    src: [ "temp" ]
+                    src: ["temp"]
                 }]
             },
             www: {
                 files: [{
                     dot: true,
-                    src: [ "www" ]
+                    src: ["www"]
                 }]
             }
         },
@@ -129,7 +129,7 @@ module.exports = function( grunt ) {
                 ],
                 dest: "temp/templates.js",
                 options: {
-                    module: "mobileSolutions"
+                    module: 'mobileSolutions'
                 }
             }
         }

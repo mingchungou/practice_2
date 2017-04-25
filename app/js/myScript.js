@@ -1,9 +1,9 @@
 "use strict";
 
-var app = angular.module("mobileSolutions", [ "ngRoute", "duScroll" ]);
+var app = angular.module("mobileSolutions", ["ngRoute", "duScroll"]);
 
 /***************** router configuration ******************/
-app.config(function( $routeProvider ) {
+app.config(function($routeProvider) {
     $routeProvider
         .when("/", {
             templateUrl: "templates/init.html",

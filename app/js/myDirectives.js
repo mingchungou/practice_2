@@ -4,22 +4,22 @@
 app.directive("ngIconExtra", function() {
     return {
         restrict: "A",
-        link: function(scope, element, attr) {
-            if (attr.ngIconExtra) {
-                var icon = JSON.parse(attr.ngIconExtra);
+        scope: {
+            ngIconExtra: "=",
+        },
+        link: function($scope, $element, $attrs) {
+            if ($scope.ngIconExtra.hasTarget) {
+                $element.attr({
+                    "data-toggle": "collapse",
+                    "data-target": $scope.ngIconExtra.hasTarget.target,
+                    "aria-expanded": "false"
+                });
+            } else if ($scope.ngIconExtra.hasUrl) {
+                var hasUrl = $scope.ngIconExtra.hasUrl;
 
-                if (icon.hasTarget) {
-                    element.attr({
-                        "data-toggle": "collapse",
-                        "data-target": icon.hasTarget.target,
-                        "aria-expanded": "false"
-                    });
-                } else if (icon.hasUrl) {
-                    element.attr("href", icon.hasUrl.url);
-
-                    if (icon.hasUrl.target) {
-                        element.attr("target", icon.hasUrl.target);
-                    }
+                $element.attr("href", hasUrl.url);
+                if (hasUrl.target) {
+                    $element.attr("target", hasUrl.target);
                 }
             }
         }
@@ -30,21 +30,20 @@ app.directive("ngIconExtra", function() {
 app.directive("ngWow", function() {
     return {
         restrict: "A",
-        link: function(scope, element, attr) {
-            if (attr.ngWow) {
-                var values = JSON.parse(attr.ngWow);
+        scope: {
+            ngWow: "=",
+        },
+        link: function($scope, $element, $attrs) {
+            var animation = $scope.ngWow.animation;
 
-                if (values.animation) {
-                    if (values.animation.type) {
-                        element.addClass("wow " + values.animation.type);
-                    }
-                    if (values.animation.duration) {
-                        element.attr("data-wow-duration", values.animation.duration);
-                    }
-                    if (values.animation.delay) {
-                        element.attr("data-wow-delay", values.animation.delay);
-                    }
-                }
+            if (animation.type) {
+                $element.addClass("wow " + animation.type);
+            }
+            if (animation.duration) {
+                $element.attr("data-wow-duration", animation.duration);
+            }
+            if (animation.delay) {
+                $element.attr("data-wow-delay", animation.delay);
             }
         }
     };
@@ -54,21 +53,22 @@ app.directive("ngWow", function() {
 app.directive("ngUrl", function() {
     return {
         restrict: "A",
-        link: function(scope, element, attr) {
-            if (attr.ngUrl) {
-                element.attr("src", attr.ngUrl);
-            }
+        scope: {
+            ngUrl: "@",
+        },
+        link: function($scope, $element, $attrs) {
+            $element.attr("src", $scope.ngUrl);
         }
     };
 });
 
 /***************** execute after ng-repeat has done ******************/
-app.directive("ngRender", function($window, $document) {
+app.directive("ngRender", function($window) {
     return {
         restrict: "A",
-        link: function(scope, element, attr) {
-            if (scope.$last && attr.ngRender) {
-                var values = JSON.parse(attr.ngRender);
+        link: function($scope, $element, $attrs) {
+            if ($scope.$last && $attrs.ngRender) {
+                var values = JSON.parse($attrs.ngRender);
 
                 if (values.type === "carousel") {
                     /***************** init owl carousel ******************/
@@ -128,7 +128,7 @@ app.directive("ngRender", function($window, $document) {
 app.directive("initComponents", function($window) {
     return {
         restrict: "E",
-        link: function(scope, element, attr) {
+        link: function($scope, $element, $attrs) {
             /***************** start from the top when loading a page ******************/
             $window.scrollTo(0, 0);
 

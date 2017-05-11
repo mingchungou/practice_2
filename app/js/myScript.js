@@ -25,3 +25,7 @@ app.config(function($routeProvider) {
             redirectTo: "/"
         });
 });
+
+angular.element(function() {
+    angular.bootstrap(document, ["mobileSolutions"]);
+});

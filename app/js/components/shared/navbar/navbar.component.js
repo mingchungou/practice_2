@@ -9,7 +9,7 @@ app.component("appNavbar", {
 app.controller("navbarController", ["$location", "$scope",
     function($location, $scope) {
         //Function for setting current route path signal
-		this.isActive = function(destination) {
+        this.isActive = function(destination) {
             var path = $location.path(),
                 pathSplit = path.split("/");
             return destination === pathSplit[1];

@@ -26,7 +26,7 @@ app.controller("mainController", ["$window", "$document", "$scope",
 			$scope.$apply(() => {
 				$scope.animated = status;
 			});
-	    };
+		};
 
 		xWindow.scroll(() => {
 			let scroll = xWindow.scrollTop();
@@ -39,9 +39,9 @@ app.controller("mainController", ["$window", "$document", "$scope",
 
 			if (scroll >= 80) {
 				animateHeader(true);
-            } else {
+			} else {
 				animateHeader(false);
-            }
+			}
 		});
 
 		goTopElem.click(() => {

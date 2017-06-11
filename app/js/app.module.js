@@ -1,8 +1,8 @@
+
 "use strict";
 
 var app = angular.module("mobileSolutions", ["ngRoute", "duScroll"]);
 
-/***************** router configuration ******************/
 app.config(function($routeProvider) {
     $routeProvider
         .when("/home", {

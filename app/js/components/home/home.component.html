@@ -1,7 +1,12 @@
-<div class="main-page" ng-cloak>
+<section class="index-content" ng-cloak>
     <section class="welcome-content">
-        <ming-header id="ming-header" menu-selected="Inicio"></ming-header>
-        <ming-welcome-text class="text-center" options="$ctrl.welcomeTextOptions"></ming-welcome-text>
+        <div class="welcome-text text-center">
+            <div class="container">
+                <h1 class="display-4 wow bounceIn">Diseño de APPS para empresas</h1>
+                <p class="wow bounceIn" data-wow-delay="0.3s">Creamos aplicaciones según las necesidades y requerimientos de nuestros clientes.</p>
+                <a class="btn btn-primary btn-lg mt-3" href="contact.html">Contáctenos</a>
+            </div>
+        </div>
         <div class="arrow-down text-center">
             <a ng-click="$ctrl.scrollToAgency()">
                 <i class="fa fa-angle-down" aria-hidden="true"></i>
@@ -12,7 +17,9 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-8 col-xl-9 wow bounceIn" data-wow-delay="0.3s">
-                    <h2 class="h3 text-center font-weight-bold text-md-left">Agencia de programación de aplicaciones</h2>
+                    <h2 class="h3 text-center font-weight-bold text-md-left">
+                        Agencia de programación de aplicaciones
+                    </h2>
                     <p>NETWORK te asesora en el desarrollo y el diseño para que tu Aplicación Movil salga a la luz. Ponemos a tu disposición las mejores plataformas del mundo de las telecomunicaciones.</p>
                     <p>Ponemos a tu alcance un servicio adaptado a tus necesidades, desde una consultoría integral con supervisión de todos y cada uno de los pasos que has de seguir para crear un negocio actual (comunicación, diseño corporativo, tecnologías...) a productos adaptados a metodologías ágiles de creación de apps diseñadas por nosotros y avaladas por nuestros años de experiencia.</p>
                 </div>
@@ -24,11 +31,16 @@
     </section>
     <section class="best-election-content py-3">
         <div class="container">
-            <h2 class="h3 text-center font-weight-bold">¿Porque somos <span>tu mejor elección?</span></h2>
+            <h2 class="h3 text-center font-weight-bold">
+                ¿Porque somos <span>tu mejor elección?</span>
+            </h2>
             <p class="text-center">Desarrollo web y Apps para empresas y profesionales</p>
             <div class="row">
                 <ul class="col-6 col-lg-4 text-center text-lg-left">
-                    <li class="wow zoomIn" data-wow-duration="0.3s" ng-repeat="election in $ctrl.bestElectionOptions | limitTo: 3" ng-wow="election">
+                    <li class="wow zoomIn"
+                        data-wow-duration="0.3s"
+                        ng-repeat="election in $ctrl.electionOptions | limitTo: 3"
+                        ng-wow="election">
                         <i class="fa {{election.style}}" aria-hidden="true"></i>
                         <div class="election-content">
                             <h4>{{election.title}}</h4>
@@ -40,7 +52,10 @@
                     <img src="images/world.svg" alt="world">
                 </div>
                 <ul class="col-6 col-lg-4 text-center text-lg-right">
-                    <li class="wow zoomIn" data-wow-duration="0.3s" ng-repeat="election in $ctrl.bestElectionOptions | limitTo: -3" ng-wow="election">
+                    <li class="wow zoomIn"
+                        data-wow-duration="0.3s"
+                        ng-repeat="election in $ctrl.electionOptions | limitTo: -3"
+                        ng-wow="election">
                         <i class="fa {{election.style}}" aria-hidden="true"></i>
                         <div class="election-content">
                             <h4>{{election.title}}</h4>
@@ -55,7 +70,9 @@
         <div class="container">
             <h2 class="text-center font-weight-bold">Nuestros Servicios</h2>
             <div class="row">
-                <article class="col-md-4 wow bounceInLeft" ng-repeat="service in $ctrl.serviceOptions" ng-wow="service">
+                <article class="col-md-4 wow bounceInLeft"
+                    ng-repeat="service in $ctrl.serviceOptions"
+                    ng-wow="service">
                     <img ng-src="{{service.image.url}}" alt="{{service.image.alt}}" />
                     <h3><a href="#">{{service.title}}</a></h3>
                     <p class="hidden-sm-down">{{service.content}}</p>
@@ -67,9 +84,8 @@
     <section class="last-projects-content py-3">
         <div class="container">
             <h2 class="text-center font-weight-bold">Últimos proyectos</h2>
-            <ming-carousel></ming-carousel>
+            <app-carousel></app-carousel>
         </div>
     </section>
-    <ming-footer></ming-footer>
-</div>
-<init-components></init-components>
+</section>
+<ng-start></ng-start>

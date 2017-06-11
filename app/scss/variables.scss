@@ -32,18 +32,6 @@ $grayColor: #8c8888 !default;
     left: $left;
 }
 
-@keyframes arrow-down-animated {
-    from {
-        transform: translateY(0);
-    }
-    50% {
-        transform: translateY(6px);
-    }
-    to {
-        transform: translateY(0);
-    }
-}
-
 @mixin quantity-query($number, $comparison: "=") {
     $nth: "";
 
@@ -66,5 +54,17 @@ $grayColor: #8c8888 !default;
         & ~ * {
             @content;
         }
+    }
+}
+
+@keyframes arrow-down-animated {
+    from {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(6px);
+    }
+    to {
+        transform: translateY(0);
     }
 }

@@ -1,9 +1,21 @@
-<div class="internal-page" ng-cloak>
+<div class="internal-page about-content" ng-cloak>
     <section class="welcome-content">
-        <ming-header id="ming-header" menu-selected="Nosotros"></ming-header>
-        <ming-welcome-text class="text-center" options="$ctrl.welcomeTextOptions"></ming-welcome-text>
+        <div class="welcome-text text-center">
+            <div class="container">
+                <h1 class="display-4 wow bounceIn">Nosotros</h1>
+                <p class="wow bounceIn" data-wow-delay="0.3s">¿Quienes somos? y ¿Que hacemos?.</p>
+            </div>
+        </div>
     </section>
-    <ming-root current-page="Nosotros"></ming-root>
+    <section class="route py-3">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 text-right">
+                    <a href="#init">Inicio</a> » Nosotros
+                </div>
+            </div>
+        </div>
+    </section>
     <main class="accordion-content py-3">
         <div class="container">
             <div class="row">
@@ -12,8 +24,15 @@
                     <p>NETWORK apuesta por la simplicidad, la actualidad y la originalidad. Creemos que la innovación creativa es la única vía para promover y fomentar contenidos de calidad que fortalezcan la confianza de los usuarios en las posibilidades y nuevos usos de los productos digitales.</p>
                     <p>Nuestro objetivo es conseguir que clientes y usuarios se sientan conectados en el nuevo mundo de la información con servicios y contenidos que no dificulten su relación, sino que la simplifiquen y la conviertan en un hecho cotidiano, agradable y satisfactorio</p>
                     <div id="accordion" role="tablist" aria-multiselectable="true">
-                        <div class="card" ng-repeat="accordion in $ctrl.accordionTextOptions" ng-render="{{$ctrl.forRender}}">
-                            <h4 class="card-header" data-toggle="collapse" data-parent="#accordion" data-target="#{{accordion.dynamicTarget}}">{{accordion.title}}</h4>
+                        <div class="card"
+                            ng-repeat="accordion in $ctrl.accordionOptions"
+                            ng-render="$ctrl.initAccordion()">
+                            <h4 class="card-header"
+                                data-toggle="collapse"
+                                data-parent="#accordion"
+                                data-target="#{{accordion.dynamicTarget}}">
+                                {{accordion.title}}
+                            </h4>
                             <div id="{{accordion.dynamicTarget}}" class="collapse">
                                 <div class="card-block">
                                     <p ng-repeat="text in accordion.content">{{text}}</p>
@@ -28,6 +47,5 @@
             </div>
         </div>
     </main>
-    <ming-footer></ming-footer>
 </div>
-<init-components></init-components>
+<ng-start></ng-start>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>NETWORK | Mobile solutions for companies</title>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta http-equiv="x-ua-compatible" content="ie=edge" />
+
+        <link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
+        <link rel="stylesheet" href="css/style.min.css" />
+    </head>
+    <body ng-controller="mainController as $ctrl">
+        <section class="main-content" ng-cloak>
+            <header class="main-header fixed-top"
+                role="banner"
+                ng-class="{'header-animated': animated}">
+                <div class="container">
+                    <app-navbar></app-navbar>
+                </div>
+            </header>
+            <section ng-view></section>
+            <footer class="main-footer py-3 text-center" role="contentinfo">
+                <div class="container">
+                    <p>2016 © NETWORK Todos los derechos reservados</p>
+                    <ul class="social-network-list">
+                        <li ng-repeat="social in $ctrl.socialNetworks">
+                            <a href="{{social.url}}" target="_blank">
+                                <i class="fa {{social.style}}" aria-hidden="true"></i>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </footer>
+            <a class="go-top">
+                <i class="fa fa-arrow-circle-up" aria-hidden="true"></i>
+            </a>
+        </section>
+
+        <script src="js/script.js"></script>
+    </body>
+</html>

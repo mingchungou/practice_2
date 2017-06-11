@@ -7,19 +7,41 @@
         <meta http-equiv="x-ua-compatible" content="ie=edge" />
 
         <link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
-        <!--<link rel="stylesheet" href="css/font-awesome.min.css" />
+        <link rel="stylesheet" href="css/font-awesome.min.css" />
         <link rel="stylesheet" href="css/bootstrap.min.css" />
         <link rel="stylesheet" href="css/animate.min.css" />
         <link rel="stylesheet" href="css/owl.carousel.min.css" />
         <link rel="stylesheet" href="css/owl.theme.default.min.css" />
-        <link rel="stylesheet" href="css/myStyle.css" />-->
-
-        <link rel="stylesheet" href="css/style.min.css" />
+        <link rel="stylesheet" href="css/myStyle.css" />
     </head>
-    <body ng-controller="mobileSolutionsController as ctrl">
-        <section ng-view></section>
+    <body ng-controller="mainController as $ctrl">
+        <section class="main-content" ng-cloak>
+            <header class="main-header fixed-top"
+                role="banner"
+                ng-class="{'header-animated': animated}">
+                <div class="container">
+                    <app-navbar></app-navbar>
+                </div>
+            </header>
+            <section ng-view></section>
+            <footer class="main-footer py-3 text-center" role="contentinfo">
+                <div class="container">
+                    <p>2016 © NETWORK Todos los derechos reservados</p>
+                    <ul class="social-network-list">
+                        <li ng-repeat="social in $ctrl.socialNetworks">
+                            <a href="{{social.url}}" target="_blank">
+                                <i class="fa {{social.style}}" aria-hidden="true"></i>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </footer>
+            <a class="go-top">
+                <i class="fa fa-arrow-circle-up" aria-hidden="true"></i>
+            </a>
+        </section>
 
-        <!--<script src="lib/jquery-3.2.0.min.js"></script>
+        <script src="lib/jquery-3.2.0.min.js"></script>
         <script src="lib/tether.min.js"></script>
         <script src="lib/bootstrap.min.js"></script>
         <script src="lib/wow.min.js"></script>
@@ -28,16 +50,17 @@
         <script src="lib/angular-route.min.js"></script>
         <script src="lib/angular-scroll.min.js"></script>
         <script src="lib/angular-sanitize.min.js"></script>
-        <script src="js/myScript.js"></script>
-        <script src="js/myDirectives.js"></script>
-        <script src="js/myControllers.js"></script>
-        <script src="js/components/mingHeader/mingHeader.js"></script>
-        <script src="js/components/mingIconList/mingIconList.js"></script>
-        <script src="js/components/mingWelcomeText/mingWelcomeText.js"></script>
-        <script src="js/components/mingCarousel/mingCarousel.js"></script>
-        <script src="js/components/mingFooter/mingFooter.js"></script>
-        <script src="js/components/mingRoot/mingRoot.js"></script>-->
-
-        <script src="js/script.min.js"></script>
+        <script src="js/app.module.js"></script>
+        <script src="js/directives/render.directive.js"></script>
+        <script src="js/directives/src.directive.js"></script>
+        <script src="js/directives/start.directive.js"></script>
+        <script src="js/directives/wow.directive.js"></script>
+        <script src="js/app.controller.js"></script>
+        <script src="js/components/shared/navbar/navbar.component.js"></script>
+        <script src="js/components/shared/carousel/carousel.component.js"></script>
+        <script src="js/components/home/home.component.js"></script>
+        <script src="js/components/about/about.component.js"></script>
+        <script src="js/components/service/service.component.js"></script>
+        <script src="js/components/contact/contact.component.js"></script>
     </body>
 </html>

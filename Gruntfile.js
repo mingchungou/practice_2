@@ -17,10 +17,10 @@ module.exports = function(grunt) {
                     "app/lib/angular-route.min.js",
                     "app/lib/angular-scroll.min.js",
                     "app/lib/angular-sanitize.min.js",
-                    "app/js/myScript.js",
+                    "app/js/app.module.js",
                     "temp/templates.js",
-                    "app/js/myDirectives.js",
-                    "app/js/myControllers.js",
+                    "app/js/directives/**.js",
+                    "app/js/app.controller.js",
                     "app/js/components/**/**.js"
                 ],
                 dest: "www/js/script.js"
@@ -32,14 +32,14 @@ module.exports = function(grunt) {
                     "app/css/owl.theme.default.min.css",
                     "app/css/bootstrap.min.css",
                     "app/css/animate.min.css",
-                    "app/css/myStyle.css"
+                    "temp/css/myStyle.css"
                 ],
                 dest: "www/css/style.css"
             },
             includeGoogleFont: {
                 options: {
                     process: function(src, filepath) {
-                        return '@import url("https://fonts.googleapis.com/css?family=Open+Sans:400,700,700italic");' + src;
+                        return "@import url('https://fonts.googleapis.com/css?family=Open+Sans:400,700,700italic');" + src;
                     }
                 },
                 files: {
@@ -88,7 +88,7 @@ module.exports = function(grunt) {
             dist: {
                 options: {
                     sassDir: "app/scss",
-                    cssDir: "temp"
+                    cssDir: "temp/css"
                 }
             }
         },
@@ -118,13 +118,17 @@ module.exports = function(grunt) {
                         "images/**"
                     ]
                 }]
+            },
+            index: {
+                files: {
+                    "www/index.html": "app/index-production.html"
+                }
             }
         },
         ngtemplates: {
             app: {
                 cwd: "app",
                 src: [
-                    "templates/**.html",
                     "js/components/**/**.html"
                 ],
                 dest: "temp/templates.js",
@@ -132,17 +136,34 @@ module.exports = function(grunt) {
                     module: "mobileSolutions"
                 }
             }
+        },
+        postcss: {
+            options: {
+                map: false,
+                processors: [
+                    require("pixrem")(),
+                    require("autoprefixer")({browsers: "last 3 versions"}),
+                    require("cssnano")()
+                ]
+            },
+            dist: {
+                src: "temp/css/myStyle.css"
+            }
         }
     });
 
     grunt.registerTask("default", [
         "clean:www",
         "imageEmbed:font",
+        "compass",
+        "postcss",
         "cssmin",
         "concat:includeGoogleFont",
         "ngtemplates",
-        "uglify",
+        //"uglify", //uglify doesn't support Javascript ES6
+        "concat:js",
         "copy",
+        "copy:index",
         "clean:temp"
     ]);
 };

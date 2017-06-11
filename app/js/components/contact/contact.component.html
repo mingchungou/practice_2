@@ -1,9 +1,21 @@
 <div class="internal-page" ng-cloak>
     <section class="welcome-content">
-        <ming-header id="ming-header" menu-selected="Contacto"></ming-header>
-        <ming-welcome-text class="text-center" options="$ctrl.welcomeTextOptions"></ming-welcome-text>
+        <div class="welcome-text text-center">
+            <div class="container">
+                <h1 class="display-4 wow bounceIn">Contacto</h1>
+                <p class="wow bounceIn" data-wow-delay="0.3s">Estamos listos para ayudarte.</p>
+            </div>
+        </div>
     </section>
-    <ming-root current-page="Contacto"></ming-root>
+    <section class="route py-3">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 text-right">
+                    <a href="#init">Inicio</a> » Contactos
+                </div>
+            </div>
+        </div>
+    </section>
     <main class="form-content py-3">
         <div class="container">
             <div class="row">
@@ -13,19 +25,40 @@
                         <div class="form-group row">
                             <label for="name" class="col-sm-4 form-control-label">Nombre</label>
                             <div class="col-sm-8">
-                                <input type="text" class="form-control" id="name" name="name" placeholder="Ingrese su nombre" data-toggle="tooltip" data-placement="top" title="Ingrese su nombre completo" />
+                                <input class="form-control"
+                                    id="name"
+                                    type="text"
+                                    name="name"
+                                    placeholder="Ingrese su nombre"
+                                    data-toggle="tooltip"
+                                    data-placement="top"
+                                    title="Ingrese su nombre completo" />
                             </div>
                         </div>
                         <div class="form-group row">
                             <label for="email" class="col-sm-4 form-control-label">Email</label>
                             <div class="col-sm-8">
-                                <input type="email" class="form-control" id="email" name="email" placeholder="Ingrese su email" data-toggle="tooltip" data-placement="top" title="Ingrese su email" />
+                                <input class="form-control"
+                                    id="email"
+                                    type="email"
+                                    name="email"
+                                    placeholder="Ingrese su email"
+                                    data-toggle="tooltip"
+                                    data-placement="top"
+                                    title="Ingrese su email" />
                             </div>
                         </div>
                         <div class="form-group row">
                             <label for="message" class="col-sm-4 form-control-label">Mensaje</label>
                             <div class="col-sm-8">
-                                <textarea class="form-control" id="message" name="message" placeholder="Ingrese su mensaje" rows="5" data-toggle="tooltip" data-placement="top" title="Ingrese un mensaje"></textarea>
+                                <textarea class="form-control"
+                                    id="message"
+                                    name="message"
+                                    placeholder="Ingrese su mensaje"
+                                    rows="5"
+                                    data-toggle="tooltip"
+                                    data-placement="top"
+                                    title="Ingrese un mensaje"></textarea>
                             </div>
                         </div>
                         <div class="form-group row">
@@ -44,6 +77,5 @@
             </div>
         </div>
     </main>
-    <ming-footer></ming-footer>
 </div>
-<init-components></init-components>
+<ng-start></ng-start>

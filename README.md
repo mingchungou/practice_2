@@ -1,3 +1,14 @@
 # practice_2
 
-Merge practice_1 to Angularjs 1.5
+Examples:
+
+- html5
+- javascript es6
+- angularjs 1.5
+- css3
+- scss
+- bootstrap
+- fontawesome
+- owl carousel
+- wow animation
+- grunt

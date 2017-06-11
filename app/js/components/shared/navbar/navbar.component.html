@@ -1,0 +1,33 @@
+<nav class="navbar">
+    <a class="logo" href="#/">
+        <img src="images/logo.svg" alt="logo">
+    </a>
+    <button class="search-btn px-2"
+        type="button"
+        data-toggle="collapse"
+        data-target="#search-form"
+        aria-expanded="false">
+        <i class="fa fa-search" aria-hidden="true"></i>
+    </button>
+    <button class="menu-btn px-2 hidden-md-up"
+        type="button"
+        data-toggle="collapse"
+        data-target="#menu-nav"
+        aria-expanded="false">
+        <i class="fa fa-bars" aria-hidden="true"></i>
+    </button>
+    <form id="search-form" class="search-form collapse" action="#" method="post">
+        <div class="search-content">
+            <input type="text" placeholder="buscar..." />
+            <input type="submit" value="Search" />
+        </div>
+    </form>
+    <nav id="menu-nav" class="menu-nav collapse">
+        <ul>
+            <li ng-repeat="option in $ctrl.menuOption"
+                ng-class="{active: $ctrl.isActive(option.url)}">
+                <a href="#{{option.url}}">{{option.name}}</a>
+            </li>
+        </ul>
+    </nav>
+</nav>

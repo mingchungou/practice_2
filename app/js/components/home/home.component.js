@@ -9,14 +9,15 @@ app.component("appHome", {
 app.controller("homeController", ["$document",
     function($document) {
         //Function for scrolling to agency block.
-        let agencyElem = angular.element("#agency-content");
+        var self = this,
+            agencyElem = angular.element("#agency-content");
 
-        this.scrollToAgency = () => {
+        this.scrollToAgency = function() {
             $document.scrollToElement(agencyElem, 80, 1000);
         };
 
-        this.$onInit = () => {
-            this.electionOptions = [{
+        this.$onInit = function() {
+            self.electionOptions = [{
                 style: "fa-briefcase",
                 title: "Aplicaciones para la nube",
                 content: "Para empresa que requiera ampliar sus plataformas de gestión.",
@@ -48,21 +49,21 @@ app.controller("homeController", ["$document",
                 animation: {delay: "0.8s"}
             }];
 
-            this.serviceOptions = [{
+            self.serviceOptions = [{
                 url: "images/service-1.svg",
-                alt: "service 1"
+                alt: "service 1",
                 title: "Desarrollo de Aplicaciones Mobiles",
                 content: "Desarrollamos aplicaciones móviles y plataformas web. Nuestra principal cualidad está en el desarrollo de software a medida de tus necesidades.",
                 animation: {delay: "0.3s"}
             }, {
                 url: "images/service-2.svg",
-                alt: "service 2"
+                alt: "service 2",
                 title: "Consultoría Tecnológica",
                 content: "Ofrecemos consultoría tecnológica especializada en movilidad, necesaria previo al desarrollo de cualquier proyecto.",
                 animation: {delay: "0.6s"}
             }, {
                 url: "images/service-3.svg",
-                alt: "service 3"
+                alt: "service 3",
                 title: "Marketing y publicidad Movil",
                 content: "Desarrollamos campañas publicitarias para tus APP. Hacemos conocer tu marca en el momento exacto para conseguir un mayor inpacto.",
                 animation: {delay: "0.9s"}

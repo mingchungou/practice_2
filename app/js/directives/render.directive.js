@@ -1,10 +1,10 @@
 
 "use strict";
 
-app.directive("ngRender", function($window) {
+app.directive("ngRender", function() {
     return {
         restrict: "A",
-        link: ($scope, $element, $attrs) => {
+        link: function($scope, $element, $attrs) {
             if ($scope.$parent.$last) {
                 $scope.ngRender();
             }

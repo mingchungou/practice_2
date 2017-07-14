@@ -6,7 +6,6 @@ app.component("appContact", {
     controller: "contactController"
 });
 
-app.controller("contactController", [
-    function() {
+app.controller("contactController", function() {
 
-    }]);
+});

@@ -1,11 +1,11 @@
 
 "use strict";
 
-app.directive("ngWow", function($window) {
+app.directive("ngWow", function() {
     return {
         restrict: "A",
-        link: ($scope, $element, $attrs) => {
-            let animation = $scope.ngWow.animation;
+        link: function($scope, $element, $attrs) {
+            var animation = $scope.ngWow.animation;
 
             if (animation) {
                 if (animation.type) {
@@ -20,7 +20,7 @@ app.directive("ngWow", function($window) {
             }
         },
         scope: {
-            ngWow: "=",
-        },
+            ngWow: "="
+        }
     };
 });

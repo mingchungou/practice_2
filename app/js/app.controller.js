@@ -3,6 +3,9 @@
 
 app.controller("mainController", ["$window", "$document", "$scope",
 	function($window, $document, $scope) {
+		var self = this;
+		$scope.animated = false;
+
 		this.socialNetworks = [{
 			style: "fa-facebook",
 			url: "https://www.facebook.com/"
@@ -17,19 +20,19 @@ app.controller("mainController", ["$window", "$document", "$scope",
 			url: "https://www.instagram.com/"
 		}];
 
-		//Function for animating header and go top icon according to scroll position.
-		let xWindow = angular.element($window),
-			goTopElem = angular.element($document[0].querySelector(".go-top"));
-		$scope.animated = false;
-
-		let animateHeader = (status) => {
-			$scope.$apply(() => {
+		this.animateHeader = function(status) {
+			$scope.$apply(function() {
 				$scope.animated = status;
 			});
 		};
 
-		xWindow.scroll(() => {
-			let scroll = xWindow.scrollTop();
+		//Function for animating header and go top icon according to scroll position.
+		var xWindow = angular.element($window),
+			goTopElem = angular.element($document[0].querySelector(".go-top")),
+			scroll;
+
+		xWindow.scroll(function() {
+			scroll = xWindow.scrollTop();
 
 			if (scroll >= 50) {
 				goTopElem.addClass("show");
@@ -38,13 +41,13 @@ app.controller("mainController", ["$window", "$document", "$scope",
 			}
 
 			if (scroll >= 80) {
-				animateHeader(true);
+				self.animateHeader(true);
 			} else {
-				animateHeader(false);
+				self.animateHeader(false);
 			}
 		});
 
-		goTopElem.click(() => {
+		goTopElem.click(function() {
 			$document.scrollTopAnimated(0, 1000);
 		});
 	}]);

@@ -20,7 +20,6 @@
     "font-awesome": "github:fortawesome/Font-Awesome",
     "jquery": "^3.2.1",
     "owl.carousel": "github:owlcarousel2/OwlCarousel2",
-    "smooth-scroll": "^11.1.0",
     "tether": "^1.4.0",
     "wowjs": "github:matthieua/WOW"
   },
